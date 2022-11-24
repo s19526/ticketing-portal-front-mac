@@ -4,7 +4,7 @@ export default function AutohideToast(){
 
     const[show,setShow]=false;
     return(
-        <Toast onClose={()=>setShow(false)} show={show} delay={1000} autohide={}>
+        <Toast onClose={()=>setShow(false)} show={show} delay={1000}>
             <Toast.Header>
                 <img
                     src="../../Assets/landing-form.png"
