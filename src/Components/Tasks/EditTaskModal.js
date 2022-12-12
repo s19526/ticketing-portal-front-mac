@@ -40,8 +40,8 @@ export class EditTaskModal extends Component{
             <div className="container">
                 <Modal {...this.props} size="lg" aria-labelledby="contained-modal-titled-vcenter" centered>
                     <Modal.Header closeButton>
-                        <Modal.Title id="cotained-modal-title-vcenter">
-                            Edit Task
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            Edit TaskList
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -49,20 +49,20 @@ export class EditTaskModal extends Component{
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
                                     <Form.Group controlId="TaskId">
-                                        <Form.Label>Task Id</Form.Label>
-                                        <Form.Control type="id" name="TaskId" required defaultValue={this.props.t?.id} disabled placeholder="Task Id"></Form.Control>
+                                        <Form.Label>TaskList Id</Form.Label>
+                                        <Form.Control type="id" name="TaskId" required defaultValue={this.props.t?.id} disabled placeholder="TaskList Id"></Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="TaskSummary">
-                                        <Form.Label>Task Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskSummary" required defaultValue={this.props.t?.summary} placeholder="Task Summary"></Form.Control>
+                                        <Form.Label>TaskList Summary</Form.Label>
+                                        <Form.Control type="text" name="TaskSummary" required defaultValue={this.props.t?.summary} placeholder="TaskList Summary"></Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="TaskStatus">
-                                        <Form.Label>Task Status</Form.Label>
-                                        <Form.Control type="text" name="TaskStatus" required defaultValue={this.props.t?.status} placeholder="Task Status"></Form.Control>
+                                        <Form.Label>TaskList Status</Form.Label>
+                                        <Form.Control type="text" name="TaskStatus" required defaultValue={this.props.t?.status} placeholder="TaskList Status"></Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="TaskDesc">
-                                        <Form.Label>Task Description</Form.Label>
-                                        <Form.Control type="text" name="TaskDesc" required defaultValue={this.props.t?.description} placeholder="Task Description"></Form.Control>
+                                        <Form.Label>TaskList Description</Form.Label>
+                                        <Form.Control type="text" name="TaskDesc" required defaultValue={this.props.t?.description} placeholder="TaskList Description"></Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="TaskCreated">
                                         <Form.Label>Created at</Form.Label>
@@ -74,7 +74,7 @@ export class EditTaskModal extends Component{
                                     </Form.Group>
                                     <FormGroup>
                                         <Button variant="primary" type="submit">
-                                            Update Task
+                                            Update TaskList
                                         </Button>
                                     </FormGroup>
                                 </Form>

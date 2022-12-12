@@ -32,7 +32,8 @@ export class AddTaskModal extends Component{
                 console.log('Created the new record ' + result.id)
             },(error)=>{
                 console.log(error)
-            }).catch(e=>console.log(e))
+            })
+            .catch(e=>console.log(e))
     }
 
     render() {
@@ -41,7 +42,7 @@ export class AddTaskModal extends Component{
                 <Modal {...this.props} size="lg" aria-labelledby="contained-modal-titled-vcenter" centered>
                     <Modal.Header closeButton>
                         <Modal.Title id="cotained-modal-title-vcenter">
-                            Add Task
+                            Add TaskList
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -49,20 +50,20 @@ export class AddTaskModal extends Component{
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
                                     <Form.Group controlId="TaskSummary">
-                                        <Form.Label>Task Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskSummary" required placeholder="Task Summary"></Form.Control>
+                                        <Form.Label>TaskList Summary</Form.Label>
+                                        <Form.Control type="text" name="TaskSummary" required placeholder="TaskList Summary"></Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="TaskStatus">
-                                        <Form.Label>Task Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskStatus" required placeholder="Task Status"></Form.Control>
+                                        <Form.Label>TaskList Summary</Form.Label>
+                                        <Form.Control type="text" name="TaskStatus" required placeholder="TaskList Status"></Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="TaskDesc">
-                                        <Form.Label>Task Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskDesc" required placeholder="Task Description"></Form.Control>
+                                        <Form.Label>TaskList Summary</Form.Label>
+                                        <Form.Control type="text" name="TaskDesc" required placeholder="TaskList Description"></Form.Control>
                                     </Form.Group>
                                 <FormGroup>
                                     <Button variant="primary" type="submit">
-                                        Add new Task
+                                        Add new TaskList
                                     </Button>
                                 </FormGroup>
                                 </Form>

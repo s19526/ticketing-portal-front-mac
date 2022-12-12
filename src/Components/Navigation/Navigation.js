@@ -1,32 +1,51 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
-import {Navbar, Nav} from 'react-bootstrap';
-import {Fingerprint} from "@mui/icons-material";
+import {Component} from "react";
+
+
+
 export class Navigation extends Component{
-    render(){
+
+    constructor(props) {
+        super(props);
+        this.state={user:null,showSignInUp:true};
+    }
+    render() {
         return(
-            <Navbar expand ="md" variant="light" >
-                <Navbar.Toggle aria-controls="basic-navbar-nav" color="primary"/>
-                <Navbar.Collapse id="basic-navbar-nav">
-                <Nav>
-                    <NavLink className="d-inline p-2 bg-primary text-white" to="/">
-                      Home
-                    </NavLink>
-                    <NavLink className="d-inline p-2 bg-dark text-white" to="tasks">
-                        Tasks
-                    </NavLink>
-                    <NavLink className="d-inline p-2 bg-dark text-white" to="users">
-                        Users
-                    </NavLink>
-                    <NavLink className="d-inline p-2 bg-dark text-white" to="sign-in">
-                        <Fingerprint/> Sign In
-                    </NavLink>
-                    <NavLink className="d-inline p-2 bg-dark text-white" to="sign-up">
-                        Sign up
-                    </NavLink>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>
+            <nav className="navbar navbar-header navbar-expand-sm fixed-top ">
+                <div className="container d-flex">
+                    <a className="navbar-brand" href="/"><i className="bi bi-tornado"></i> Home</a>
+                    <div className="position-relative end-0 text-end">
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#mynavbar">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="mynavbar">
+                            <ul className="navbar-nav me-auto" show={this.state.showSignInUp}>
+                                <li className="nav-item d-flex align-items-center d-flex justify-content-end ">
+                                    <a className="nav-link" href="sign-in" >
+                                        <i className="bi bi-person-circle"></i>
+                                        Sign-In</a>
+                                </li>
+                                <li className="nav-item d-flex align-items-center d-flex justify-content-end">
+                                    <a className="nav-link" href="sign-up">
+                                        <i className="bi bi-person-add"></i>
+                                        Sign-up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         )
+    }
+
+    checkUser(){
+        const user = JSON.parse(sessionStorage.getItem("user"));
+        if (user.get("id")!= null){
+            this.setState({user:user,showSignInUp:true})
+        }else{
+            this.setState({user:null,showSignInUp:false})
+        }
+
+
     }
 }
