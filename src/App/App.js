@@ -9,7 +9,7 @@ import {Tasks} from '../Components/Tasks/Tasks';
 import {SignIn} from '../Components/SignIn/SignIn'
 import {SignUp} from '../Components/SignUp/SignUp'
 import {LandingPage} from "../Components/Landing/LandingPage";
-import {Navigation} from "../Components/Navigation/Navigation";
+import Navigation from "../Components/Navigation/Navigation";
 
 
 function App() {

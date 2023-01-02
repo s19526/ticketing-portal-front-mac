@@ -1,12 +1,11 @@
 import React,{Component} from "react";
-import {Modal, Button, Row, Col, Form, FormGroup} from "react-bootstrap";
+import {Modal, Button, Row, Col, Form} from "react-bootstrap";
 
 export class EditTaskModal extends Component{
     constructor(props) {
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this);
     }
-
 
     handleSubmit(event){
         event.preventDefault();
@@ -45,48 +44,45 @@ export class EditTaskModal extends Component{
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Row>
-                            <Col sm={6}>
-                                <Form onSubmit={this.handleSubmit}>
-                                    <Form.Group controlId="TaskId">
-                                        <Form.Label>TaskList Id</Form.Label>
+                                <Form className="mx-4" onSubmit={this.handleSubmit}>
+                                    <Form.Group className="mb-3" controlId="TaskId">
+                                        <Form.Label>Ticket Id</Form.Label>
                                         <Form.Control type="id" name="TaskId" required defaultValue={this.props.t?.id} disabled placeholder="TaskList Id"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskSummary">
-                                        <Form.Label>TaskList Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskSummary" required defaultValue={this.props.t?.summary} placeholder="TaskList Summary"></Form.Control>
+                                    <Form.Group className="mb-3" controlId="TaskSummary">
+                                        <Form.Label>Ticket Summary</Form.Label>
+                                        <Form.Control type="text" name="TaskSummary" autoFocus required defaultValue={this.props.t?.summary} placeholder="TaskList Summary"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskStatus">
-                                        <Form.Label>TaskList Status</Form.Label>
+                                    <Form.Group className="mb-3" controlId="TaskStatus">
+                                        <Form.Label>Ticket Status Status</Form.Label>
                                         <Form.Control type="text" name="TaskStatus" required defaultValue={this.props.t?.status} placeholder="TaskList Status"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskDesc">
-                                        <Form.Label>TaskList Description</Form.Label>
-                                        <Form.Control type="text" name="TaskDesc" required defaultValue={this.props.t?.description} placeholder="TaskList Description"></Form.Control>
+                                    <Form.Group className="mb-3" controlId="TaskDesc">
+                                        <Form.Label>Ticket Description</Form.Label>
+                                        <Form.Control as="textarea" rows={6} name="TaskDesc" required defaultValue={this.props.t?.description} placeholder="TaskList Description"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskCreated">
+                                    <Form.Group className="mb-3" controlId="TaskCreated">
                                         <Form.Label>Created at</Form.Label>
                                         <Form.Control type="text" name="TaskCreated" required defaultValue={this.props.t?.dateCreated} disabled placeholder="Created at"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskSource">
-                                        <Form.Label>Created through</Form.Label>
+                                    <Form.Group className="mb-3" controlId="TaskSource">
+                                        <Form.Label>Created from</Form.Label>
                                         <Form.Control type="text" name="TaskSource" required defaultValue={this.props.t?.source} disabled placeholder="Source"></Form.Control>
                                     </Form.Group>
-                                    <FormGroup>
-                                        <Button variant="primary" type="submit">
-                                            Update TaskList
+                                    <Form.Group className="mb-3 text-center">
+                                        <Button variant="btn btn-success btn-md" type="submit" onClick={this.props.onHide}>
+                                            Update Ticket
                                         </Button>
-                                    </FormGroup>
+                                    </Form.Group>
                                 </Form>
-                            </Col>
-                        </Row>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="danger" onClick={this.props.onHide}>Close</Button>
-                    </Modal.Footer>
+
                 </Modal>
             </div>
         );
     }
 
 }
+//<Modal.Footer>
+//                         <Button variant="danger btn btn-md" onClick={this.props.onHide}>Close</Button>
+//                     </Modal.Footer>

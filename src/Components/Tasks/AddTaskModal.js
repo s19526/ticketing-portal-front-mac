@@ -5,7 +5,6 @@ export class AddTaskModal extends Component{
     constructor(props) {
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this)
-
     }
 
     handleSubmit(event){
@@ -18,9 +17,9 @@ export class AddTaskModal extends Component{
                 'Content-Type' : 'application/json'
             },
             body: JSON.stringify({
-                summary:event.target.TaskSummary.value,
-                status:event.target.TaskStatus.value,
-                description:event.target.TaskDesc.value,
+                summary:event.target.summControl.value,
+                status:event.target.statusControl.value,
+                description:event.target.descControl.value,
                 source:"portal",
                 dateCreated:Date.now(),
                 author:{"id":1}
@@ -41,41 +40,37 @@ export class AddTaskModal extends Component{
             <div className="container">
                 <Modal {...this.props} size="lg" aria-labelledby="contained-modal-titled-vcenter" centered>
                     <Modal.Header closeButton>
-                        <Modal.Title id="cotained-modal-title-vcenter">
-                            Add TaskList
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            Add new Ticket
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Row>
-                            <Col sm={6}>
-                                <Form onSubmit={this.handleSubmit}>
-                                    <Form.Group controlId="TaskSummary">
-                                        <Form.Label>TaskList Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskSummary" required placeholder="TaskList Summary"></Form.Control>
+                                <Form className="mx-4" onSubmit={this.handleSubmit}>
+                                    <Form.Group className="mb-3" variant="m-4" controlId="summControl">
+                                        <Form.Label>Summary</Form.Label>
+                                        <Form.Control type="text" name="summControl" required placeholder="Ticket Summary"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskStatus">
-                                        <Form.Label>TaskList Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskStatus" required placeholder="TaskList Status"></Form.Control>
+                                    <Form.Group className="mb-3" controlId="statusControl">
+                                        <Form.Label>Status</Form.Label>
+                                        <Form.Control type="text" name="statusControl" required placeholder="Ticket Status"></Form.Control>
                                     </Form.Group>
-                                    <Form.Group controlId="TaskDesc">
-                                        <Form.Label>TaskList Summary</Form.Label>
-                                        <Form.Control type="text" name="TaskDesc" required placeholder="TaskList Description"></Form.Control>
+                                    <Form.Group className="mb-3" controlId="descControl">
+                                        <Form.Label>Description</Form.Label>
+                                        <Form.Control as="textarea" rows={6} name="descControl" required></Form.Control>
                                     </Form.Group>
-                                <FormGroup>
-                                    <Button variant="primary" type="submit">
-                                        Add new TaskList
-                                    </Button>
-                                </FormGroup>
+                                    <Form.Group className="mb-3 text-center">
+                                        <Button variant="btn btn-success btn-md" type="submit" onSubmit={this.props.onHide}>
+                                            Add new
+                                        </Button>
+                                    </Form.Group>
                                 </Form>
-                            </Col>
-                        </Row>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="danger" onClick={this.props.onHide}>Close</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         );
     }
 
 }
+//<Modal.Footer>
+//                         <Button variant="danger btn btn-md" onClick={this.props.onHide}>Close</Button>
+//                     </Modal.Footer>

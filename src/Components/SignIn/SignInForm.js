@@ -35,11 +35,11 @@ export default function SignInForm() {
                 <form onSubmit={handleSubmit}>
                     <div className="form-outline mb-4">
                         <input type="email" id="userEmail" className="form-control"/>
-                        <label className="form-label" for="userEmail">Email address</label>
+                        <label className="form-label" htmlFor="userEmail">Email address</label>
                     </div>
                     <div className="form-outline mb-4">
                         <input type="password" id="userPassword" className="form-control"/>
-                        <label className="form-label" for="userPassword">Password</label>
+                        <label className="form-label" htmlFor="userPassword">Password</label>
                     </div>
                     <div className="row mb-4">
                         <div className="col">

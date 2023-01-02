@@ -126,10 +126,12 @@ h4 {
   color: darkred;
   font-size: 200px !important;
 }
+
 .bi-globe-europe-africa{
   color: darkred;
   font-size: 200px;
 }
+
 span.bi {
   font-size: 50px !important;
   color: darkred;
@@ -151,6 +153,9 @@ form label {
   padding-right: 33px;
 }
 
+.form-group {
+  margin-bottom: 10px;
+}
 
 
 @keyframes slide {
