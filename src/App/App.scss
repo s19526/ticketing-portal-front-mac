@@ -26,7 +26,7 @@ h4 {
 .jumbotron {
   background-color: #447fb4;
   color: #fff;
-  padding: 100px 45px !important;
+  padding: 60px 50px;
   font-family: Montserrat, sans-serif;
 }
 .jumbotron h1{
@@ -95,7 +95,7 @@ h4 {
 .navbar {
   margin-bottom: 0;
   background-color: #014d94;
-  z-index: auto;
+  z-index: 3;
   font-size: 15px !important;
   line-height: 1.42857143 !important;
   letter-spacing: 4px;
@@ -122,10 +122,33 @@ h4 {
   color: white !important;
 }
 
+.btn-reverse-main{
+
+  & button{
+    border: 1px solid #014d94;
+    background-color: #fff;
+    color: #014d94;
+  }
+
+  & button .active {
+    border: 1px solid #014d94;
+    background-color: #014d94;
+    color: white !important;
+  }
+  & button .hover{
+    background-color: #014d94;
+  }
+}
+
 .bi-bar-chart  {
   color: darkred;
   font-size: 200px !important;
 }
+
+.bi-person-bounding-box{
+  font-size: 50px !important;
+}
+
 
 .bi-globe-europe-africa{
   color: darkred;
@@ -156,6 +179,24 @@ form label {
 .form-group {
   margin-bottom: 10px;
 }
+
+.pagination li{
+  & a{
+    color: #014d94 !important;
+  }
+  &.active span{
+    background-color: #014d94 !important;
+  }
+}
+
+.bg-lightgrey{
+  background-color: lightgrey;
+}
+
+.bg-lightgreen{
+   background-color: lightgreen;
+}
+
 
 
 @keyframes slide {

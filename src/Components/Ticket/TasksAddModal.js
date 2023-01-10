@@ -1,7 +1,7 @@
 import React,{Component} from "react";
-import {Modal, Button, Row, Col, Form, FormGroup} from "react-bootstrap";
+import {Modal, Button, Form} from "react-bootstrap";
 
-export class AddTaskModal extends Component{
+export class TasksAddModal extends Component{
     constructor(props) {
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -59,7 +59,7 @@ export class AddTaskModal extends Component{
                                         <Form.Control as="textarea" rows={6} name="descControl" required></Form.Control>
                                     </Form.Group>
                                     <Form.Group className="mb-3 text-center">
-                                        <Button variant="btn btn-success btn-md" type="submit" onSubmit={this.props.onHide}>
+                                        <Button variant="btn btn-success btn-md" type="submit" onClick={this.props.onHide}>
                                             Add new
                                         </Button>
                                     </Form.Group>

@@ -1,10 +1,7 @@
 import React,{Component} from "react";
-import {Modal, Button, Row, Col, Form, FormGroup} from "react-bootstrap";
+import {Modal, Button} from "react-bootstrap";
 
-export class DeleteTaskModal extends Component{
-    constructor(props) {
-        super(props);
-    }
+export class TasksDeleteModal extends Component{
 
     handleSubmit(){
         console.log(this.props.t);

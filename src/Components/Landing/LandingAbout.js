@@ -1,5 +1,5 @@
-import {Component, useRef, useState} from "react";
 import {Navigate} from "react-router-dom"
+import {Component} from "react";
 
 
 export class LandingAbout extends Component{
@@ -14,9 +14,6 @@ export class LandingAbout extends Component{
         }else{
             this.setState({clickedNotLogged:true})
         }
-    }
-    cleanState(){
-        this.setState({clickedLogged:false,clickedNotLogged:false});
     }
 
     render() {
@@ -79,6 +76,5 @@ export function redirectUser(){
     }else {
         console.log("Trying to navigate to sign-in");
         return <Navigate to="/sign-in"/>
-        console.log("After navigation");
     }
 }

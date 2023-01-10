@@ -1,7 +1,7 @@
 import React,{Component} from "react";
-import {Modal, Button, Row, Col, Form} from "react-bootstrap";
+import {Modal, Button, Form} from "react-bootstrap";
 
-export class EditTaskModal extends Component{
+export class TasksEditModal extends Component{
     constructor(props) {
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this);
