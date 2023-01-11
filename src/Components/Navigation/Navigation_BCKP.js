@@ -1,7 +1,5 @@
 import {useState} from "react";
 
-
-
 function Navigation() {
     const [user, setUser] = useState(false);
     const [showSignInUp, setShowSignInUp] = useState(null);

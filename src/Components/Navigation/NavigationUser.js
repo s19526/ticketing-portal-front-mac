@@ -1,4 +1,4 @@
-function Navigation() {
+function NavigationUser() {
     return(
             <div className="collapse navbar-collapse" id="mynavbar">
                 <ul className="navbar-nav me-auto">
@@ -13,16 +13,15 @@ function Navigation() {
                             My Account</a>
                     </li>
                     <li className="nav-item d-flex align-items-center d-flex justify-content-end">
-                        <a className="nav-link" onClick={x=>sessionStorage.clear()} href="/">
+                        <a className="nav-link" onClick={()=>sessionStorage.clear()} href="/">
                             <i className="bi bi-power"></i>
                         </a>
                     </li>
                 </ul>
             </div>
     );
-
 }
-export default Navigation;
+export default NavigationUser;
 
 
 

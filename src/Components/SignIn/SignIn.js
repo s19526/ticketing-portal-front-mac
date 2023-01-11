@@ -1,7 +1,6 @@
 import teamwork_image from "../../Assets/landing-teamwork.jpg";
 import {useNavigate} from "react-router-dom";
 import {SignInHeader} from "./SignInHeader";
-import {useState} from "react";
 
 export default function SignIn() {
 
@@ -29,8 +28,9 @@ export default function SignIn() {
                     sessionStorage.setItem("user",JSON.stringify(user));
                     let permList=[];
                     result.userPermissions.forEach(x=>permList.push(x.permission.id))
-                    sessionStorage.setItem("permissions",permList.sort((a,b) => a>b?1:-1).toString());
-                    navigate("/tasks");
+                    permList.sort((a,b) => a>b?1:-1);
+                    sessionStorage.setItem("permissions",JSON.stringify(permList));
+                    document.location.href="/tasks";
                     },
                 error=>{
                     console.log("Error, wrong user or password " + error)

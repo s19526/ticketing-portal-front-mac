@@ -1,5 +1,5 @@
 import React, {Component, useRef} from 'react';
-import {Button, ButtonToolbar, Form, Table} from "react-bootstrap";
+import {Badge, Button, ButtonToolbar, Form, Table} from "react-bootstrap";
 
 export class AccountOrganization extends Component{
     constructor(props) {
@@ -21,12 +21,12 @@ export class AccountOrganization extends Component{
                 </thead>
                 <tbody>
                 {users?.map(u=>
-                    <tr className={u.active?"bg-lightgreen":"bg-lightgrey"} key={u.id}>
+                    <tr /*className={u.active?"bg-lightgreen":"bg-lightgrey"}*/ key={u.id}>
                         <td width={"50px"} align={"center"}>{u.id}</td>
                         <td width={"300px"} className="text-center">{u.email}</td>
                         <td width={"100px"}>{u.name}</td>
                         <td >{u.lastName}</td>
-                        <td width={"100px"} >{u.active?"Active":"Deactivated"}</td>
+                        <td width={"100px"} className="text-center">{u.active?<Badge bg="success">Active</Badge>:<Badge bg="light" text="dark">Deactivated</Badge>}</td>
                         <td width={"200px"} className="text-center">
                                 <Button className="m-auto btn-main btn-md w-75" type="button" onClick={()=>this.changeUserStatus(u,u.active)}>{u.active?"Deactivate":"Activate"}</Button>
                         </td>
@@ -41,7 +41,8 @@ export class AccountOrganization extends Component{
             {
                 method: 'GET',
                 headers: new Headers({
-                        Authorization: 'Basic ' + process.env.TOKEN
+                        Authorization: 'Basic ' + process.env.TOKEN,
+                        Accept: 'application/json'
                     }
                 )
             })
@@ -54,7 +55,7 @@ export class AccountOrganization extends Component{
     changeUserStatus(user,status){
         let u1 = new URL(process.env.REACT_APP_API + '/users/' + user.id + "/deactivate");
         let u2 = new URL (process.env.REACT_APP_API + '/users/' + user.id + "/activate");
-        fetch(status?u1:u2,
+        fetch(status?u1.toString():u2.toString(),
                 {
                 method: 'POST',
                 headers: new Headers({

@@ -7,9 +7,8 @@ import {AccountOrganization} from "./AccountOrganization";
 export class Account extends Component {
     constructor(props) {
         super(props);
-        this.state = {personal: true, user:JSON};
+        this.state = {personal: true, user:JSON, logged:false};
     }
-
     render() {
         return (
             <div>

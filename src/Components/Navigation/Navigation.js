@@ -2,8 +2,6 @@ import NavigationUser from "./NavigationUser";
 import NavigationSignInUp from "./NavigationSignInUp";
 
 function Navigation() {
-
-
     return(
         <nav className="navbar navbar-header navbar-expand-sm fixed-top">
             <div className="container d-flex">

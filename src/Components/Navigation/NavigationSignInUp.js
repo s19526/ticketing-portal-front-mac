@@ -1,4 +1,4 @@
-function Navigation() {
+function NavigationSignInUp() {
     return(
             <div className="collapse navbar-collapse" id="mynavbar">
                 <ul className="navbar-nav me-auto">
@@ -17,7 +17,7 @@ function Navigation() {
     );
 
 }
-export default Navigation;
+export default NavigationSignInUp;
 
 
 
