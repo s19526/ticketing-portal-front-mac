@@ -1,6 +1,6 @@
 import {Component} from "react";
 
-export class AccountHeader extends Component{
+export class AccountHeader extends Component {
     render() {
         let user = JSON.parse(sessionStorage.getItem("user"));
         return (

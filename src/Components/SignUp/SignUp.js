@@ -1,34 +1,42 @@
 import teamwork_image from "../../Assets/landing-teamwork.jpg";
 import {useNavigate} from "react-router-dom";
-import {SignUpHeader} from "./SignUpHeader";
+import {SignUpHeader} from "./SignUp-Header";
 
-export default function SingUpForm(){
+export default function SingUpForm() {
 
     const navigate = useNavigate();
-    function handleSubmit(event){
+
+    function handleSubmit(event) {
         event.preventDefault();
-        fetch(process.env.REACT_APP_API+"/users/create",{
-            method:'POST',
-            headers:{
-                'Authorization' : 'Basic ' + process.env.TOKEN,
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
+        fetch(process.env.REACT_APP_API + "/users/create", {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Basic ' + process.env.TOKEN,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email:event.target.userEmail.value,
-                name:event.target.userName.value,
-                lastName:event.target.userLastName.value,
-                passwordSalt:btoa(event.target.userPassword.value),
-                dateAdded:Date.now()
+                email: event.target.userEmail.value,
+                name: event.target.userName.value,
+                lastName: event.target.userLastName.value,
+                passwordSalt: btoa(event.target.userPassword.value),
+                dateAdded: Date.now()
             })
         })
-            .then(res=>res.json())
+            .then(res => res.json())
             .then(
-                result=>{console.log('Created the new record ' + result.id);sessionStorage.setItem("user",JSON.stringify(result));navigate("/tasks")},
-                error=>{console.log("Error: " + error)})
-            .catch(e=>console.log(e));
+                result => {
+                    console.log('Created the new record ' + result.id);
+                    sessionStorage.setItem("user", JSON.stringify(result));
+                    document.location.href = "/tasks"
+                },
+                error => {
+                    console.log("Error: " + error)
+                })
+            .catch(e => console.log(e));
     }
-    return(
+
+    return (
         <div>
             <SignUpHeader></SignUpHeader>
             <div className="m-4 row slide">

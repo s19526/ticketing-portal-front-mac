@@ -1,7 +1,7 @@
 import React, {Component, useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 
-export class AccountPersonalForm extends Component{
+export class AccountView1PersonalForm extends Component{
     constructor(props) {
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -38,7 +38,6 @@ export class AccountPersonalForm extends Component{
     }
     render(){
         return(
-            <div>
                 <Form id="form" className="mx-auto w-50" onSubmit={this.handleSubmit}>
                     <Form.Group className="mb-2" controlId="AccountId">
                         <Form.Label>Account Id</Form.Label>
@@ -70,7 +69,6 @@ export class AccountPersonalForm extends Component{
                         </Button>
                     </Form.Group>
                 </Form>
-            </div>
         );
     }
 }

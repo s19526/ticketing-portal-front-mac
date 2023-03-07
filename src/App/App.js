@@ -4,24 +4,27 @@ import './App.scss';
 
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Account} from '../Components/Account/Account';
-import {Tasks} from '../Components/Ticket/Tasks';
+import {Tasks} from '../Components/Tasks/Tasks';
 import SignIn from '../Components/SignIn/SignIn'
 import SignUp from '../Components/SignUp/SignUp'
-import {LandingPage} from "../Components/Landing/LandingPage";
-import Navigation from "../Components/Navigation/Navigation";
+import {Landing} from "../Components/Landing/Landing";
+import NavigationBar from "../Components/Navigation/Navigation-Bar";
+import {Agent} from "../Components/Agent/Agent";
+
 
 
 function App() {
   return (
   <BrowserRouter>
-      <Navigation/>
+      <NavigationBar/>
     <div>
         <Routes>
-            <Route path='/' element={<LandingPage/>} exact/>
+            <Route path='/' element={<Landing/>} exact/>
             <Route path='tasks' element={<Tasks/>}/>
             <Route path='account' element={<Account/>}/>
             <Route path='sign-in' element={<SignIn/>}/>
             <Route path='sign-up' element={<SignUp/>}/>
+            <Route path='agent' element={<Agent/>}/>
         </Routes>
     </div>
   </BrowserRouter>

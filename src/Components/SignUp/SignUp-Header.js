@@ -1,6 +1,6 @@
 import {Component} from "react";
 
-export class SignUpHeader extends Component{
+export class SignUpHeader extends Component {
     render() {
         return (
             <div className="jumbotron mb-5 text-center">

@@ -1,44 +1,45 @@
 import teamwork_image from "../../Assets/landing-teamwork.jpg";
 import {useNavigate} from "react-router-dom";
-import {SignInHeader} from "./SignInHeader";
+import {SignInHeader} from "./SignIn-Header";
 
 export default function SignIn() {
 
     const navigate = useNavigate();
 
-    function handleSubmit(event){
+    function handleSubmit(event) {
         event.preventDefault();
-        fetch(process.env.REACT_APP_API+"/users/login",{
-            method:'POST',
-            headers:{
-                'Authorization' : 'Basic ' + process.env.TOKEN,
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
+        fetch(process.env.REACT_APP_API + "/users/login", {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Basic ' + process.env.TOKEN,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email:event.target.userEmail.value,
-                passwordSalt:btoa(event.target.userPassword.value),
+                email: event.target.userEmail.value,
+                passwordSalt: btoa(event.target.userPassword.value),
             })
         })
-            .then(res=>res.json())
+            .then(res => res.json())
             .then(
-                result=>{
+                result => {
                     console.log('Found a user, logged in ' + result.id);
-                    let user = {id:result.id,name:result.name,lastname:result.lastName};
-                    sessionStorage.setItem("user",JSON.stringify(user));
-                    let permList=[];
-                    result.userPermissions.forEach(x=>permList.push(x.permission.id))
-                    permList.sort((a,b) => a>b?1:-1);
-                    sessionStorage.setItem("permissions",JSON.stringify(permList));
-                    document.location.href="/tasks";
-                    },
-                error=>{
+                    let user = {id: result.id, name: result.name, lastname: result.lastName};
+                    sessionStorage.setItem("user", JSON.stringify(user));
+                    let permList = [];
+                    result.userPermissions.forEach(x => permList.push(x.permission.id))
+                    permList.sort((a, b) => a > b ? 1 : -1);
+                    sessionStorage.setItem("permissions", JSON.stringify(permList));
+                    document.location.href = "/tasks";
+                },
+                error => {
                     console.log("Error, wrong user or password " + error)
                 })
-            .catch(e=>console.log(e));
+            .catch(e => console.log(e));
 
     }
-    return(
+
+    return (
         <div>
             <SignInHeader></SignInHeader>
             <div className="m-4 row slide">
@@ -57,7 +58,7 @@ export default function SignIn() {
                         </div>
                         <div className="row mb-4">
                             <div className="col">
-                                <a href="#!">Forgot password?</a>
+                                <a href="mailto:support@ticketly.com">Forgot password?</a>
                             </div>
                         </div>
 

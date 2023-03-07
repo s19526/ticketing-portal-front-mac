@@ -1,8 +1,7 @@
-import NavigationUser from "./NavigationUser";
-import NavigationSignInUp from "./NavigationSignInUp";
-
-function Navigation() {
-    return(
+import NavigationView2User from "./Navigation-View2-User";
+import NavigationView1Sign from "./Navigation-View1-Sign";
+function NavigationBar() {
+    return (
         <nav className="navbar navbar-header navbar-expand-sm fixed-top">
             <div className="container d-flex">
                 <a className="navbar-brand" href="/"><i className="bi bi-tornado"></i> Home</a>
@@ -11,13 +10,14 @@ function Navigation() {
                             data-bs-target="#mynavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    {checkUser()?<NavigationUser></NavigationUser>:<NavigationSignInUp></NavigationSignInUp>}
+                    {checkUser() ? <NavigationView2User></NavigationView2User> :
+                        <NavigationView1Sign></NavigationView1Sign>}
                 </div>
             </div>
         </nav>
     );
 
-    function checkUser(){
+    function checkUser() {
         let user = sessionStorage.getItem("user");
         if (user != null) {
             return true;
@@ -27,7 +27,8 @@ function Navigation() {
     }
 
 }
-export default Navigation;
+
+export default NavigationBar;
 
 
 
